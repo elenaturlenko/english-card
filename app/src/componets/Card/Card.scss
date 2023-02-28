@@ -1,0 +1,31 @@
+$colorCard: rgb(138, 215, 175);
+
+@mixin bodyPosition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card {
+  &:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+  &-body {
+    width: 15rem;
+    height: 20rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: $colorCard;
+    @include bodyPosition;
+}
+
+  &-word {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+}

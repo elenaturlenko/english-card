@@ -1,0 +1,11 @@
+.table {
+    &-name {
+        font-size: large;
+    }
+}
+
+.buttons {
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
