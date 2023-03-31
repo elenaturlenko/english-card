@@ -1,12 +1,12 @@
 import React from "react";
-import words from "./componets/data/data.json"
+import words from "./data/data.json";
 import "./App.scss";
-import Header from "./componets/Header/Header"
-import Footer from "./componets/Footer/Footer"
+import Header from "./componets/Header/Header";
+import Footer from "./componets/Footer/Footer";
 import Card from "./componets/Card/Card";
-import ButtonPrev from "./componets/Buttons/ButtonPrev"
-import ButtonNext from "./componets/Buttons/ButtonNext"
-import WordsList from "./componets/WordsList/WordsList"
+import ButtonPrev from "./componets/Buttons/ButtonPrev";
+import ButtonNext from "./componets/Buttons/ButtonNext";
+import WordsList from "./componets/WordsList/WordsList";
 
 function App() {
   return (

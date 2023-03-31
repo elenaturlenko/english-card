@@ -1,7 +1,7 @@
 import React from "react";
 import "./ButtonDelete.scss";
 
-function ButtonDelete(props) {
+function ButtonDelete() {
     return <button className="btn">Delete</button>;
 }
 

@@ -2,6 +2,13 @@
     width: 70px;
     height: 30px;
     margin: 5px;
+    border: none;
     border-radius: 5px;
     background-color: rgb(26, 186, 106);
+    
+    &:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
 }

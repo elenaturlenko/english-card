@@ -1,7 +1,7 @@
 import React from "react";
 import "./ButtonPrev.scss";
 
-function ButtonPrev(props) {
+function ButtonPrev() {
     return <button className="btn-prev">Previous</button>;
 }
 
