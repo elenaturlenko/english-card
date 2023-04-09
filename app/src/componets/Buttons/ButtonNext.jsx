@@ -1,8 +1,8 @@
 import React from "react";
 import "./ButtonNext.scss";
 
-function ButtonNext() {
-    return <button className="btn-next">Next</button>;
+function ButtonNext(props) {
+    return <button className="btn-next" onClick={props.onClick}>Next</button>;
 }
 
 export default ButtonNext;
