@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Card from "../Card/Card";
+import "./CardContainer.scss";
 import ButtonNext from "../Buttons/ButtonNext";
 import ButtonPrev from "../Buttons/ButtonPrev";
 import words from "../../data/data.json";
@@ -27,7 +28,7 @@ function CardContainer(props) {
     }, []);
   
     return (
-      <div className="cardContainer">
+      <main className="cardContainer">
         <div className="oneCard">
           <ButtonPrev onClick={handleClickPrev} />
           <Card
@@ -40,7 +41,7 @@ function CardContainer(props) {
         <span className="numberCard">
           {selectedCardIndex + 1}/{words.length}
         </span>
-      </div>
+      </main>
     );
   }
   

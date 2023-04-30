@@ -1,0 +1,28 @@
+$colorText: #000000;
+.menu {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 60px;
+    font-weight: bold;
+    font-size: bold;
+    color: $colorText;
+    background-color: rgb(213, 255, 234);
+
+    .links {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+    }
+    li {
+        margin: 10px;
+        padding: 10px;
+
+        a {
+        text-decoration: none;
+        color: $colorText;
+        }
+    }
+}

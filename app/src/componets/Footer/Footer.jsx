@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="year">© 2023</div>
-            <p className="text">English-cards</p>
+            <div className="text">English-cards</div>
         </footer>
 );
 }
