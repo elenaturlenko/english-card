@@ -30,13 +30,13 @@ function CardContainer(props) {
     return (
       <main className="cardContainer">
         <div className="oneCard">
-          <ButtonPrev onClick={handleClickPrev} />
+          <ButtonPrev onClick={handleClickPrev} disabled={selectedCardIndex === 0} />
           <Card
             word={words[selectedCardIndex].english}
             transcription={words[selectedCardIndex].transcription}
             translation={words[selectedCardIndex].russian}
           ></Card>
-          <ButtonNext onClick={handleClickNext} />
+          <ButtonNext onClick={handleClickNext} disabled={selectedCardIndex === words.length - 1}/>
         </div>
         <span className="numberCard">
           {selectedCardIndex + 1}/{words.length}

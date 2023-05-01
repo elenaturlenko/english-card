@@ -11,4 +11,15 @@
         -ms-transform: scale(1.1);
         transform: scale(1.1);
     }
+
+}
+
+.disabled {
+    width: 70px;
+    height: 30px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    color: #7c7c85;
+    background-color: #b3b3b6;
 }
