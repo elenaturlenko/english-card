@@ -4,6 +4,10 @@
     border: none;
     border-radius: 9%;
     background-color: rgb(26, 186, 106);
+    &:focus {
+      outline: 5px solid rgb(26, 186, 106);
+      outline-offset: 1px;
+    }
 }
 
 .button:hover {
