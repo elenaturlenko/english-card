@@ -25,6 +25,7 @@ function CardContainer(props) {
       }
     };
 
+
     const addToWords = useCallback(
       () => setWordsCount(wordsCount + 1),
       [wordsCount]

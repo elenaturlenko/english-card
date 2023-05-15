@@ -3,7 +3,9 @@ import ButtonTranslate from "../Buttons/ButtonTranslate";
 import "./Card.scss";
 
 function Card(props) {
-    const {word, transcription, translation, onClick, isTranslationShown } = props;
+    const {word, transcription, translation, onClick, isTranslationShown} = props;
+
+
     return (
         <div className="card">
             <div className="card-body">
