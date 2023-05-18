@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    
+
         .oneCard {
         display: flex;
         align-items: center;
@@ -13,3 +13,8 @@
         color: #000000;
         }
     }
+    .wordsCount{
+      padding: 10px;
+      background-color: #efeffb;
+      border-radius: 9%;
+      }

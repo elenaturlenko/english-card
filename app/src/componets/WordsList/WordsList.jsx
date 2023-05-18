@@ -1,6 +1,7 @@
 import React from "react";
 import TableRow from "../TableRow/TableRow";
 import "./WordsList.scss";
+import EditTableRow from "../EditTableRow/EditTableRow";
 import words from "../../data/data.json"
 
 
@@ -18,6 +19,7 @@ function WordsList() {
               </tr>
             </thead>
             <tbody>
+            <EditTableRow />
             {words.map((word) => (
             <TableRow
               key={word.id}

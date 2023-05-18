@@ -43,7 +43,7 @@ function CardContainer(props) {
 
     return (
       <main className="cardContainer">
-              <span> изучено {wordsCount} слов</span>
+              <span className="wordsCount"> изучено {wordsCount} слов</span>
         <div className="oneCard">
           <ButtonPrev
             onClick={handleClickPrev}
