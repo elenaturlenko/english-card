@@ -3,17 +3,18 @@ import Card from "../Card/Card";
 import "./CardContainer.scss";
 import ButtonNext from "../Buttons/ButtonNext";
 import ButtonPrev from "../Buttons/ButtonPrev";
-import words from "../../data/data.json";
+import { observer, inject } from "mobx-react";
 
-function CardContainer(props) {
+
+const CardContainer = inject(["dataStore"])(
+  observer(({ dataStore }) => {
     const [selectedCardIndex, setSelectedCardIndex] = useState(0);
-    const [data, updateTranslationState] = useState(words);
+    const [data, updateTranslationState] = useState(dataStore.data);
     const [wordsCount, setWordsCount] = useState(0);
-
 
     const handleClickNext = () => {
       const newIdx = selectedCardIndex + 1;
-      if (newIdx < words.length) {
+      if (newIdx < dataStore.data.length) {
         setSelectedCardIndex(newIdx);
       }
     };
@@ -25,7 +26,6 @@ function CardContainer(props) {
       }
     };
 
-
     const addToWords = useCallback(
       () => setWordsCount(wordsCount + 1),
       [wordsCount]
@@ -34,7 +34,7 @@ function CardContainer(props) {
     const handleClickTranslation = (isTranslationShown) => {
       const dataCopy = [...data];
       dataCopy[selectedCardIndex].isTranslationShow =
-        !dataCopy[selectedCardIndex]?.isTranslationShow;
+        !dataCopy[selectedCardIndex].isTranslationShow;
       updateTranslationState(dataCopy);
       if (!isTranslationShown) {
         addToWords();
@@ -42,16 +42,17 @@ function CardContainer(props) {
     };
 
     return (
-      <main className="cardContainer">
-              <span className="wordsCount"> изучено {wordsCount} слов</span>
+      <div className="cardContainer">
+        <span className="wordsCount"> изучено {wordsCount} слов</span>
         <div className="oneCard">
           <ButtonPrev
             onClick={handleClickPrev}
-            disabled={selectedCardIndex === 0} />
+            disabled={selectedCardIndex === 0}
+          />
           <Card
-            word={words[selectedCardIndex].english}
-            transcription={words[selectedCardIndex].transcription}
-            translation={words[selectedCardIndex].russian}
+            word={dataStore.data[selectedCardIndex].english}
+            transcription={dataStore.data[selectedCardIndex].transcription}
+            translation={dataStore.data[selectedCardIndex].russian}
             onClick={() =>
               handleClickTranslation(data[selectedCardIndex].isTranslationShow)
             }
@@ -59,13 +60,15 @@ function CardContainer(props) {
           ></Card>
           <ButtonNext
             onClick={handleClickNext}
-            disabled={selectedCardIndex === words.length - 1}/>
+            disabled={selectedCardIndex === dataStore.data.length - 1}
+          />
         </div>
         <span className="numberCard">
-          {selectedCardIndex + 1}/{words.length}
+          {selectedCardIndex + 1}/{dataStore.data.length}
         </span>
-      </main>
-    );
-  }
+      </div>
+      );
+    })
+  );
 
   export default CardContainer;
