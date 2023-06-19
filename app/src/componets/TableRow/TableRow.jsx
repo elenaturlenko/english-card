@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import ButtonDelete from "../Buttons/ButtonDelete";
 import ButtonEdit from "../Buttons/ButtonEdit";
 import "./TableRow.scss";
+import { observer, inject } from "mobx-react";
 
-function TableRow(props) {
-    const {id, word, transcription, translation } = props;
+const TableRow = inject(["dataStore"])(
+  observer(({ dataStore, ...props }) => {
     const [pressed, setPressed] = useState(false);
+
     const [inputData, setInputData] = useState({
-      word: word,
-      transcription: transcription,
-      translation: translation,
+      word: props.word,
+      transcription: props.transcription,
+      translation: props.translation,
     });
+
     const [errors, setErrors] = useState({
       word: false,
       transcription: false,
@@ -21,12 +24,14 @@ function TableRow(props) {
       setPressed(!pressed);
     };
 
-    const addInputData = (e) => {
+    const addInputData = (event) => {
       setInputData({
         ...inputData,
-        [e.target.name]: e.target.value,
+        [event.target.name]: event.target.value,
       });
     };
+
+    const { word, transcription, translation } = inputData;
 
     const onlyLatinCharacters = (value) => {
       return /^[a-zA-Z]+$/.test(value);
@@ -44,9 +49,7 @@ function TableRow(props) {
         setErrors({ ...errors, translation: "Введите слово на русском языке" });
         alert("Некоторые поля заполнены неправильно!");
       } else {
-        console.log(inputData.word);
-        console.log(inputData.transcription);
-        console.log(inputData.translation);
+        dataStore.updateWord();
         setErrors({
           word: false,
           transcription: false,
@@ -56,60 +59,60 @@ function TableRow(props) {
       }
     };
 
-      return (
-        <tr className="row" key={id}>
-          {pressed === true ? (
-            <>
-              <td>
-                <input
-                  className="row-input"
-                  type="text"
-              value={word}
-              onChange={(e) => addInputData(e)}
-              name="word"
-                />
-              </td>
-              <td>
-                <input
-                  className="row-input"
-                  type="text"
-                  value={transcription}
-                  onChange={(e) => addInputData(e)}
-                  name="transcription"
-                />
-              </td>
-              <td>
-                <input
-                  className="row-input"
-                  type="text"
-              value={translation}
-              onChange={(e) => addInputData(e)}
-              name="translation"
-                />
-              </td>
-            </>
-          ) : (
-            <>
-              <td className="row-word" onClick={handleChange}>
-                {inputData.word}
-              </td>
-              <td className="row-word" onClick={handleChange}>
-                {inputData.transcription}
-              </td>
-              <td className="row-word" onClick={handleChange}>
-                {inputData.translation}
-              </td>
-            </>
-          )}
-
+    return (
+      <tr className="row" key={dataStore.data.id}>
+        {pressed === true ? (
+          <>
+            <td>
+              <input
+                className="row-input"
+                type="text"
+                value={word}
+                onChange={(e) => addInputData(e)}
+                name="word"
+              />
+            </td>
+            <td>
+              <input
+                className="row-input"
+                type="text"
+                value={transcription}
+                onChange={(e) => addInputData(e)}
+                name="transcription"
+              />
+            </td>
+            <td>
+              <input
+                className="row-input"
+                type="text"
+                value={translation}
+                onChange={(e) => addInputData(e)}
+                name="translation"
+              />
+            </td>
+          </>
+        ) : (
+          <>
+            <td className="row-word" onClick={handleChange}>
+              {inputData.word}
+            </td>
+            <td className="row-word" onClick={handleChange}>
+              {inputData.transcription}
+            </td>
+            <td className="row-word" onClick={handleChange}>
+              {inputData.translation}
+            </td>
+          </>
+        )}
         <td>
           <div className="buttons">
-          <ButtonEdit onClick={handleSave} pressed={pressed} />
+            <ButtonEdit onClick={handleSave} pressed={pressed} />
             <ButtonDelete />
           </div>
         </td>
       </tr>
     );
-  }
+  })
+);
 
 export default TableRow;
