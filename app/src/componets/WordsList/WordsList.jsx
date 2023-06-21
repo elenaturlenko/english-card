@@ -24,6 +24,7 @@ const WordsList = inject(["dataStore"])(
             {dataStore.data.map((word) => (
               <TableRow
                 key={word.id}
+                id={word.id}
                 word={word.english}
                 transcription={word.transcription}
                 translation={word.russian}

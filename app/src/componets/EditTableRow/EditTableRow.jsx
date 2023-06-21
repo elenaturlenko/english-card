@@ -44,7 +44,13 @@ const EditableRow = inject(["dataStore"])(
         setErrors({ ...errors, translation: "Введите слово на русском языке" });
         alert("Некоторые поля заполнены неправильно!");
       } else {
-        dataStore.addWord(inputData);
+        dataStore.addNewWord(inputData).then(() => {
+          setInputData({
+            word: " ",
+            translation: " ",
+            transcription: " ",
+          });
+        });
       }
     };
 

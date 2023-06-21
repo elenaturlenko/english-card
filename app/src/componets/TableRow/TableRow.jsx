@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ButtonDelete from "../Buttons/ButtonDelete";
 import ButtonEdit from "../Buttons/ButtonEdit";
+import ButtonSave from "../Buttons/ButtonSave";
 import "./TableRow.scss";
 import { observer, inject } from "mobx-react";
 
@@ -9,6 +10,7 @@ const TableRow = inject(["dataStore"])(
     const [pressed, setPressed] = useState(false);
 
     const [inputData, setInputData] = useState({
+      id: props.id,
       word: props.word,
       transcription: props.transcription,
       translation: props.translation,
@@ -49,7 +51,7 @@ const TableRow = inject(["dataStore"])(
         setErrors({ ...errors, translation: "Введите слово на русском языке" });
         alert("Некоторые поля заполнены неправильно!");
       } else {
-        dataStore.updateWord();
+        dataStore.updateWord(inputData, props.id);
         setErrors({
           word: false,
           transcription: false,
@@ -59,8 +61,10 @@ const TableRow = inject(["dataStore"])(
       }
     };
 
+    const handleDelete = () => dataStore.deleteWord(props.id);
+
     return (
-      <tr className="row" key={dataStore.data.id}>
+      <tr className="row" key={props.id}>
         {pressed === true ? (
           <>
             <td>
@@ -106,8 +110,9 @@ const TableRow = inject(["dataStore"])(
         )}
         <td>
           <div className="buttons">
-            <ButtonEdit onClick={handleSave} pressed={pressed} />
-            <ButtonDelete />
+          <ButtonEdit onClick={handleChange} pressed={pressed} />
+            {pressed === true ? <ButtonSave onClick={handleSave} /> : ""}
+            <ButtonDelete onClick={() => handleDelete(props.id)} />
           </div>
         </td>
       </tr>

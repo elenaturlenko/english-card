@@ -1,8 +1,12 @@
 import React from "react";
 import "./ButtonDelete.scss";
 
-function ButtonDelete() {
-    return <button className="btn">Delete</button>;
+function ButtonDelete(props) {
+  return (
+    <button className="btn" onClick={props.onClick}>
+      Delete
+    </button>
+  );
 }
 
 export default ButtonDelete;

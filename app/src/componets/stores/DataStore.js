@@ -11,7 +11,7 @@ class DataStore {
   }
 
   loadData = () => {
-    fetch("http://itgirlschool.justmakeit.ru/api/words")
+    fetch("/api/words")
       .then((response) => {
         if (response.ok) {
           //Проверяем что код ответа 200
@@ -24,8 +24,9 @@ class DataStore {
   };
 
   addNewWord = (inputData) => {
-    fetch("http://itgirlschool.justmakeit.ru/api/words/add", {
+    return fetch("/api/words/add", {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
@@ -44,13 +45,15 @@ class DataStore {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(() => {
-        this.loadData();
+      .then((response) => {
+        console.log(response);
+        this.data.push(response);
       });
   };
 
   deleteWord = (id) => {
-    fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/delete`, {
+    this.isLoading = true;
+    fetch(`/api/words/${id}/delete`, {
       method: "POST",
     })
       .then((response) => {
@@ -61,33 +64,30 @@ class DataStore {
           throw new Error("Something went wrong ...");
         }
       })
-      .then(() => {
-        this.loadData();
-      });
+      .then((response) => (this.data = this.data.filter((el) => el.id !== id))); //в случае успешного запроса нужно убрать элемент из массива
+    this.isLoading = false;
   };
 
-  updateWord = (inputData) => {
-    fetch(
-      `http://itgirlschool.justmakeit.ru/api/words/${inputData.id}/update`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(inputData),
+  updateWord = (inputData, id) => {
+    fetch(`/api/words/${id}/update`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify({
+        english: inputData.word,
+        russian: inputData.translation,
+        transcription: inputData.transcription,
+      }),
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Something went wrong ...");
       }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Something went wrong ...");
-        }
-      })
+    });
 
-      .then(() => {
-        this.loadData();
-      });
+    //   .then((response) => (this.data = response));
   };
 }
 
