@@ -7,15 +7,15 @@ import { observer, inject } from 'mobx-react';
 
 const WordsList = inject(['dataStore'])(
   observer(({ dataStore }) => (
-      <div className="main_table">
+      <div className="main__table">
         <table className="table">
-          <caption className="table-name">Words List</caption>
+          <caption className="table__name">Words List</caption>
           <thead>
             <tr>
-              <th className="col"> Word</th>
-              <th className="col">Transcription</th>
-              <th className="col">Translate</th>
-              <th className="col">Actions</th>
+              <th className="table__col"> Word</th>
+              <th className="table__col">Transcription</th>
+              <th className="table__col">Translate</th>
+              <th className="table__col">Actions</th>
             </tr>
           </thead>
           <tbody>

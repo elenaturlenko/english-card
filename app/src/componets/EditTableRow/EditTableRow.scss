@@ -1,24 +1,27 @@
+$Colorbackground: #ecfff9;
+$Colorborder: #cbe7de;
+
 .rowAddWord {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: flex-end;
 
-  .addWord {
-    padding: 0;
-    background-color: rgb(230, 242, 243);
-    border: none;
-    height: 25px;
+  &__addWord {
     width: 150px;
-  }
-  .addWord-red {
-    padding: 0;
-    background-color: rgb(230, 242, 243);
-    border: 1px solid rgb(219, 179, 179);
-    border-radius: 5px;
     height: 25px;
-    width: 148px;
+    padding: 0;
+    background-color:$Colorbackground;
+    border: none;
   }
-  .buttons {
+  &_addWord-red {
+    width: 148px;
+    height: 25px;
+    padding: 0;
+    background-color: $Colorbackground;
+    border: 1px solid $Colorborder;
+    border-radius: 5px;
+  }
+  &__buttons {
     display: flex;
     justify-content: flex-end;
     align-items: center;

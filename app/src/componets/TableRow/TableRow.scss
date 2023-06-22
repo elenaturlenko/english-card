@@ -1,16 +1,25 @@
+$Colorborder: #cbe7de;
+$Colorbackground: #ecfff9;
+
 .row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__buttons {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    justify-content: flex-end;
-  
-    &-input,
-    &-word {
-      width: 150px;
-    }
-    .buttons {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
+  }
 }
+
+.td__input,
+.td__word {
+    height: 25px;
+    width: 150px;
+    text-align: center;
+    background-color:$Colorbackground;
+    border: none;
+    outline:none;
+  }
+

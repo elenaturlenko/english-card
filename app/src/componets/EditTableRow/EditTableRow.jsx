@@ -66,7 +66,7 @@ const EditableRow = inject(['dataStore'])(
             value={word}
             onChange={(e) => addInputData(e)}
             name="word"
-            className={word.length ? 'addWord' : 'addWord-red'}
+            className={word.length ? 'rowAddWord__addWord' : 'rowAddWord_addWord-red'}
           />
         </td>
         <td>
@@ -76,7 +76,7 @@ const EditableRow = inject(['dataStore'])(
             value={transcription}
             onChange={(e) => addInputData(e)}
             name="transcription"
-            className={transcription.length ? 'addWord' : 'addWord-red'}
+            className={transcription.length ? 'rowAddWord__addWord' : 'rowAddWord_addWord-red'}
           />
         </td>
         <td>
@@ -86,11 +86,11 @@ const EditableRow = inject(['dataStore'])(
             value={translation}
             onChange={(e) => addInputData(e)}
             name="translation"
-            className={translation.length ? 'addWord' : 'addWord-red'}
+            className={translation.length ? 'rowAddWord__addWord' : 'rowAddWord_addWord-red'}
           />
         </td>
         <td>
-          <div className="buttons">
+          <div className="rowAddWord__buttons">
             <ButtonAdd disabled={!validate()} save={handleSave} />
             <ButtonDelete />
           </div>

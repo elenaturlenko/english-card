@@ -1,8 +1,8 @@
 .loading {
-  margin-top: 25%;
   display: flex;
   justify-content: center;
-  .loadingGif {
+  margin-top: 25%;
+  &__gif {
     width: 10em;
     height: 10em;
   }

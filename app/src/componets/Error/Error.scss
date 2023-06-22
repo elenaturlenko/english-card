@@ -1,9 +1,9 @@
 .error {
     display: flex;
-    align-items: center;
     justify-content: center;
-    
-    .errorImg {
+    align-items: center;
+
+    &__img {
         width: 50em;
         height: 30em;
         }

@@ -1,11 +1,19 @@
-.table {
-    &-name {
-        font-size: large;
-    }
-}
+$colorText: #2e9e6b;
 
-.buttons {
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  &__name {
+    margin: 10px;
+    font-size: large;
+    font-weight: bold;
+    color: $colorText;
+  }
+  &__col {
+    width: 150px;
+    color: #484e40;
+  }
 }

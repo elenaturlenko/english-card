@@ -2,10 +2,10 @@
     width: 70px;
     height: 30px;
     margin: 5px;
+    background-color: #97ccb2;
     border: none;
     border-radius: 5px;
-    background-color: rgb(26, 186, 106);
-    
+
     &:hover {
         -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
@@ -17,8 +17,8 @@
     width: 70px;
     height: 30px;
     margin: 5px;
-    border: none;
-    border-radius: 5px;
     color: #7c7c85;
     background-color: #b3b3b6;
+    border: none;
+    border-radius: 5px;
 }

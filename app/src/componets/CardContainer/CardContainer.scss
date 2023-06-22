@@ -1,20 +1,29 @@
+$Colortext: #484e40;
+$Colorbackground: #ecfff9;
+
 .cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+
+  &__wordsCount {
+    padding: 10px;
+    color: $Colortext;
+    background-color: #f8f8fa;
+    border-radius: 9%;
+  }
+  &__oneCard {
     display: flex;
     align-items: center;
-    flex-direction: column;
-
-        .oneCard {
-        display: flex;
-        align-items: center;
-        }
-
-        .numberCard {
-        padding: 10px;
-        color: #000000;
-        }
-    }
-    .wordsCount{
-      padding: 10px;
-      background-color: #efeffb;
-      border-radius: 9%;
-      }
+  }
+  &__numberCard {
+    padding: 10px;
+    color: $Colortext;
+    background-color: $Colorbackground;
+    border-radius: 9%;
+  }
+  @media (max-width: 600px) {
+    padding-top: 5em;
+  }
+}

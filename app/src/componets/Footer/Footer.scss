@@ -1,9 +1,23 @@
+$colorText: #2e9e6b;
+$Colorbackground: #ecfff9;
+
 .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: $colorText;
+  background-color: $Colorbackground;
+
+  &__text {
+    padding-right: 90px;
+    padding-left: 90px;
+    text-align: center;
+  }
+  @media (max-width: 600px) {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 70px;
-    color: #000000;
-    background-color: rgb(213, 255, 234);
+  }
 }

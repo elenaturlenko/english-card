@@ -1,26 +1,35 @@
-$colorCard: rgb(138, 215, 175);
+$colorCard: #cbe7de;
 
 @mixin bodyPosition {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
+  margin: 20px;
+  &:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 
-  &-body {
-    width: 15rem;
-    height: 20rem;
-    margin: 1rem;
-    border-radius: 1rem;
-    background-color: $colorCard;
+  &__body {
     @include bodyPosition;
+    width: 15em;
+    height: 20em;
+    margin: 1em;
+    background-color: $colorCard;
+    border-radius: 9%;
+  }
 }
 
-  &-word {
-    font-size: 1.5rem;
+.body-card__word {
+    font-size: 1.5em;
     font-weight: bold;
   }
 
+.body-card__transcription {
+  margin-bottom: 3em;
 }

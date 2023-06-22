@@ -46,8 +46,8 @@ const CardContainer = inject(['dataStore'])(
 
     return (
       <div className="cardContainer">
-        <span className="wordsCount"> изучено {wordsCount} слов</span>
-        <div className="oneCard">
+        <span className="cardContainer__wordsCount"> изучено {wordsCount} слов</span>
+        <div className="cardContainer__oneCard">
           <ButtonPrev
             onClick={handleClickPrev}
             disabled={selectedCardIndex === 0}
@@ -65,7 +65,7 @@ const CardContainer = inject(['dataStore'])(
             disabled={selectedCardIndex === dataStore.data.length - 1}
           />
         </div>
-        <span className="numberCard">
+        <span className="cardContainer__numberCard">
           {selectedCardIndex + 1}/{dataStore.data.length}
         </span>
       </div>

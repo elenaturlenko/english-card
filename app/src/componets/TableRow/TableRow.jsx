@@ -66,9 +66,9 @@ const TableRow = inject(['dataStore'])(
       <tr className="row" key={props.id}>
         {pressed === true ? (
           <>
-            <td>
+            <td className="td">
               <input
-                className="row-input"
+                className="td__input"
                 type="text"
                 value={word}
                 onChange={(e) => addInputData(e)}
@@ -77,7 +77,7 @@ const TableRow = inject(['dataStore'])(
             </td>
             <td>
               <input
-                className="row-input"
+                className="td__input"
                 type="text"
                 value={transcription}
                 onChange={(e) => addInputData(e)}
@@ -86,7 +86,7 @@ const TableRow = inject(['dataStore'])(
             </td>
             <td>
               <input
-                className="row-input"
+                className="td__input"
                 type="text"
                 value={translation}
                 onChange={(e) => addInputData(e)}
@@ -96,19 +96,19 @@ const TableRow = inject(['dataStore'])(
           </>
         ) : (
           <>
-            <td className="row-word" onClick={handleChange}>
+            <td className="td__word" onClick={handleChange}>
               {inputData.word}
             </td>
-            <td className="row-word" onClick={handleChange}>
+            <td className="td__word" onClick={handleChange}>
               {inputData.transcription}
             </td>
-            <td className="row-word" onClick={handleChange}>
+            <td className="td__word" onClick={handleChange}>
               {inputData.translation}
             </td>
           </>
         )}
         <td>
-          <div className="buttons">
+          <div className="row__buttons">
           <ButtonEdit onClick={handleChange} pressed={pressed} />
             {pressed === true ? <ButtonSave onClick={handleSave} /> : ''}
             <ButtonDelete onClick={() => handleDelete(props.id)} />

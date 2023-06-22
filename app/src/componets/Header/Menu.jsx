@@ -6,22 +6,22 @@ import Logo from '../../assets/Logo.png';
 function Menu() {
   return (
         <div className="menu">
+          <div className="menu__text">
             <Link to="/logo">
-                <img src={Logo} alt="logo" />
+              <img src={Logo} alt="logo" />
             </Link>
-            <nav className="menu-links">
-                <ul className="links">
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/wordsList">Words List</Link>
-                </li>
-                <li>
-                    <Link to="/game">Cards</Link>
-                </li>
-                </ul>
-            </nav>
+            <div>English-cards</div>
+          </div>
+          <nav className="menu-links links">
+              <ul className="links__ul">
+              <li>
+                  <Link to="/wordsList">Words List</Link>
+              </li>
+              <li>
+                  <Link to="/game">Cards</Link>
+              </li>
+              </ul>
+          </nav>
         </div>
   );
 }

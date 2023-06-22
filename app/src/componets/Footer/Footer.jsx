@@ -4,8 +4,7 @@ import './Footer.scss';
 function Footer() {
   return (
         <footer className="footer">
-            <div className="year">© 2023</div>
-            <div className="text">English-cards</div>
+            <div className="footer__text">English-cards © 2023</div>
         </footer>
   );
 }

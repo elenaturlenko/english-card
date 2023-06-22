@@ -1,28 +1,41 @@
-$colorText: #000000;
+$colorText: #2e9e6b;
+$Colorbackground: #ecfff9;
+
 .menu {
-    overflow: hidden;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 60px;
+  font-size: bold;
+  font-weight: bold;
+  color: $colorText;
+  background-color: $Colorbackground;
+
+  &__text {
     display: flex;
-    align-items: center;
+    gap: 50px;
+    text-transform: uppercase;
+    font-size: 40px;
+  }
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .links__ul {
+    display: flex;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 60px;
-    font-weight: bold;
-    font-size: bold;
-    color: $colorText;
-    background-color: rgb(213, 255, 234);
+    list-style-type: none;
+  }
+  li {
+    margin: 10px;
+    padding: 10px;
 
-    .links {
-        display: flex;
-        justify-content: space-between;
-        list-style-type: none;
+    a {
+      text-decoration: none;
+      color: $colorText;
     }
-    li {
-        margin: 10px;
-        padding: 10px;
-
-        a {
-        text-decoration: none;
-        color: $colorText;
-        }
-    }
+  }
 }

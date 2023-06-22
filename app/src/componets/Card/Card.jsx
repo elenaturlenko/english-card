@@ -9,10 +9,10 @@ function Card(props) {
   } = props;
   return (
     <div className="card">
-      <div className="card-body">
-        <div className="card-word">{word}</div>
-        <div className="card-transcription">{transcription}</div>
-        <div className="card-translation">
+      <div className="card__body body-card">
+        <div className="body-card__word">{word}</div>
+        <div className="body-card__transcription">{transcription}</div>
+        <div className="body-card__translation">
           <ButtonTranslate
             russian={translation}
             onClick={onClick}
