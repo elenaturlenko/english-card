@@ -1,6 +1,6 @@
 import React from 'react';
 import './Error.scss';
-import Error404 from '../../assets/Error404.jpg';
+import Error404 from '../../assets/image/Error404.jpg';
 
 function Error() {
   return (
