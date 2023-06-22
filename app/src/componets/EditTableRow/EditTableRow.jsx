@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import "./EditTableRow.scss";
-import ButtonDelete from "../Buttons/ButtonDelete";
-import ButtonAdd from "../Buttons/ButtonAdd";
-import { observer, inject } from "mobx-react";
+import React, { useState } from 'react';
+import './EditTableRow.scss';
+import { observer, inject } from 'mobx-react';
+import ButtonDelete from '../Buttons/ButtonDelete.jsx';
+import ButtonAdd from '../Buttons/ButtonAdd.jsx';
 
-const EditableRow = inject(["dataStore"])(
+const EditableRow = inject(['dataStore'])(
   observer(({ dataStore }) => {
     const [inputData, setInputData] = useState({
-      word: "",
-      transcription: "",
-      translation: "",
+      word: '',
+      transcription: '',
+      translation: '',
     });
-
 
     const [errors, setErrors] = useState({
       word: false,
@@ -28,34 +27,32 @@ const EditableRow = inject(["dataStore"])(
 
     const { word, transcription, translation } = inputData;
 
-    const onlyLatinCharacters = (value) => {
-      return /^[a-zA-Z]+$/.test(value);
-    };
+    const onlyLatinCharacters = (value) => /^[a-zA-Z]+$/.test(value);
 
-    const onlyRussianCharacters = (value) => {
-      return /^[\u0400-\u04FF]+$/.test(value);
-    };
+    const onlyRussianCharacters = (value) => /^[\u0400-\u04FF]+$/.test(value);
 
     const handleSave = () => {
       if (!onlyLatinCharacters(inputData.word)) {
-        setErrors({ ...errors, word: "Введите слово на английском языке" });
-        alert("Некоторые поля заполнены неправильно!");
+        setErrors({ ...errors, word: 'Введите слово на английском языке' });
+        // eslint-disable-next-line no-alert
+        alert('Некоторые поля заполнены неправильно!');
       } else if (!onlyRussianCharacters(inputData.translation)) {
-        setErrors({ ...errors, translation: "Введите слово на русском языке" });
-        alert("Некоторые поля заполнены неправильно!");
+        setErrors({ ...errors, translation: 'Введите слово на русском языке' });
+        // eslint-disable-next-line no-alert
+        alert('Некоторые поля заполнены неправильно!');
       } else {
         dataStore.addNewWord(inputData).then(() => {
           setInputData({
-            word: " ",
-            translation: " ",
-            transcription: " ",
+            word: ' ',
+            translation: ' ',
+            transcription: ' ',
           });
         });
       }
     };
 
-
     const validate = () => {
+      // eslint-disable-next-line no-shadow
       const { word, transcription, translation } = inputData;
       return word.trim() && transcription.trim() && translation.trim();
     };
@@ -69,7 +66,7 @@ const EditableRow = inject(["dataStore"])(
             value={word}
             onChange={(e) => addInputData(e)}
             name="word"
-            className={word.length ? "addWord" : "addWord-red"}
+            className={word.length ? 'addWord' : 'addWord-red'}
           />
         </td>
         <td>
@@ -79,7 +76,7 @@ const EditableRow = inject(["dataStore"])(
             value={transcription}
             onChange={(e) => addInputData(e)}
             name="transcription"
-            className={transcription.length ? "addWord" : "addWord-red"}
+            className={transcription.length ? 'addWord' : 'addWord-red'}
           />
         </td>
         <td>
@@ -89,7 +86,7 @@ const EditableRow = inject(["dataStore"])(
             value={translation}
             onChange={(e) => addInputData(e)}
             name="translation"
-            className={translation.length ? "addWord" : "addWord-red"}
+            className={translation.length ? 'addWord' : 'addWord-red'}
           />
         </td>
         <td>
@@ -100,7 +97,7 @@ const EditableRow = inject(["dataStore"])(
         </td>
       </tr>
     );
-  })
+  }),
 );
 
 export default EditableRow;

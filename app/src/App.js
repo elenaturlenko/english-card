@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
-} from "react-router-dom";
-import "./App.scss";
-import Header from "./componets/Header/Header";
-import Footer from "./componets/Footer/Footer";
-import Error from "./componets/Error/Error";
-import CardContainer from "./componets/CardContainer/CardContainer";
-import WordsList from "./componets/WordsList/WordsList";
+  Route,
+} from 'react-router-dom';
+import './App.scss';
+import Header from './componets/Header/Header.jsx';
+import Footer from './componets/Footer/Footer.jsx';
+import Error from './componets/Error/Error.jsx';
+import CardContainer from './componets/CardContainer/CardContainer.jsx';
+import WordsList from './componets/WordsList/WordsList.jsx';
 
 function App() {
   return (

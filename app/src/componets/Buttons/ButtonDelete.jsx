@@ -1,9 +1,11 @@
-import React from "react";
-import "./ButtonDelete.scss";
+import React from 'react';
+import './ButtonDelete.scss';
 
 function ButtonDelete(props) {
+  // eslint-disable-next-line react/prop-types
+  const { onClick } = props;
   return (
-    <button className="btn" onClick={props.onClick}>
+    <button className="btn" onClick={onClick}>
       Delete
     </button>
   );

@@ -1,10 +1,10 @@
-import React from "react";
-import "./Menu.scss";
-import Logo from "../../assets/Logo.png";
-import {Link} from "react-router-dom";
+import React from 'react';
+import './Menu.scss';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/Logo.png';
 
 function Menu() {
-    return (
+  return (
         <div className="menu">
             <Link to="/logo">
                 <img src={Logo} alt="logo" />
@@ -23,6 +23,6 @@ function Menu() {
                 </ul>
             </nav>
         </div>
-    );
-    }
+  );
+}
 export default Menu;

@@ -1,14 +1,12 @@
-import React from "react";
-import ButtonTranslate from "../Buttons/ButtonTranslate";
-import "./Card.scss";
+import React from 'react';
+import ButtonTranslate from '../Buttons/ButtonTranslate.jsx';
+import './Card.scss';
 
-const Card = ({
-  word,
-  translation,
-  transcription,
-  isTranslationShown,
-  onClick,
-}) => {
+function Card(props) {
+  const {
+    // eslint-disable-next-line react/prop-types
+    word, translation, transcription, isTranslationShown, onClick,
+  } = props;
   return (
     <div className="card">
       <div className="card-body">
@@ -18,12 +16,11 @@ const Card = ({
           <ButtonTranslate
             russian={translation}
             onClick={onClick}
-            pressed={isTranslationShown}
-          />
+            pressed={isTranslationShown} />
         </div>
       </div>
-      </div>
+    </div>
   );
-};
+}
 
 export default Card;

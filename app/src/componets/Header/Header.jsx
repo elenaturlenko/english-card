@@ -1,14 +1,13 @@
-import React from "react";
-import "./Header.scss";
-import Menu from "./Menu";
-
+import React from 'react';
+import './Header.scss';
+import Menu from './Menu.jsx';
 
 function Header() {
-    return (
+  return (
         <header className="header">
             <Menu />
         </header>
-);
+  );
 }
 
 export default Header;

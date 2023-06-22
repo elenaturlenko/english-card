@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import ButtonDelete from "../Buttons/ButtonDelete";
-import ButtonEdit from "../Buttons/ButtonEdit";
-import ButtonSave from "../Buttons/ButtonSave";
-import "./TableRow.scss";
-import { observer, inject } from "mobx-react";
+import React, { useState } from 'react';
+import ButtonDelete from '../Buttons/ButtonDelete.jsx';
+import ButtonEdit from '../Buttons/ButtonEdit.jsx';
+import ButtonSave from '../Buttons/ButtonSave.jsx';
+import './TableRow.scss';
+// eslint-disable-next-line import/order
+import { observer, inject } from 'mobx-react';
 
-const TableRow = inject(["dataStore"])(
+const TableRow = inject(['dataStore'])(
   observer(({ dataStore, ...props }) => {
     const [pressed, setPressed] = useState(false);
 
@@ -35,21 +36,19 @@ const TableRow = inject(["dataStore"])(
 
     const { word, transcription, translation } = inputData;
 
-    const onlyLatinCharacters = (value) => {
-      return /^[a-zA-Z]+$/.test(value);
-    };
+    const onlyLatinCharacters = (value) => /^[a-zA-Z]+$/.test(value);
 
-    const onlyRussianCharacters = (value) => {
-      return /^[\u0400-\u04FF]+$/.test(value);
-    };
+    const onlyRussianCharacters = (value) => /^[\u0400-\u04FF]+$/.test(value);
 
     const handleSave = () => {
       if (!onlyLatinCharacters(inputData.word)) {
-        setErrors({ ...errors, word: "Введите слово на английском языке" });
-        alert("Некоторые поля заполнены неправильно!");
+        setErrors({ ...errors, word: 'Введите слово на английском языке' });
+        // eslint-disable-next-line no-alert
+        alert('Некоторые поля заполнены неправильно!');
       } else if (!onlyRussianCharacters(inputData.translation)) {
-        setErrors({ ...errors, translation: "Введите слово на русском языке" });
-        alert("Некоторые поля заполнены неправильно!");
+        setErrors({ ...errors, translation: 'Введите слово на русском языке' });
+        // eslint-disable-next-line no-alert
+        alert('Некоторые поля заполнены неправильно!');
       } else {
         dataStore.updateWord(inputData, props.id);
         setErrors({
@@ -111,13 +110,13 @@ const TableRow = inject(["dataStore"])(
         <td>
           <div className="buttons">
           <ButtonEdit onClick={handleChange} pressed={pressed} />
-            {pressed === true ? <ButtonSave onClick={handleSave} /> : ""}
+            {pressed === true ? <ButtonSave onClick={handleSave} /> : ''}
             <ButtonDelete onClick={() => handleDelete(props.id)} />
           </div>
         </td>
       </tr>
     );
-  })
+  }),
 );
 
 export default TableRow;

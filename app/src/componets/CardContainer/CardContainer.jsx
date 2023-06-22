@@ -1,13 +1,13 @@
-import React, {useState, useCallback} from "react";
-import Card from "../Card/Card";
-import "./CardContainer.scss";
-import ButtonNext from "../Buttons/ButtonNext";
-import ButtonPrev from "../Buttons/ButtonPrev";
-import Loading from "../Loading/Loading";
-import { observer, inject } from "mobx-react";
+import React, { useState, useCallback } from 'react';
+import Card from '../Card/Card.jsx';
+import './CardContainer.scss';
+import ButtonNext from '../Buttons/ButtonNext.jsx';
+import ButtonPrev from '../Buttons/ButtonPrev.jsx';
+import Loading from '../Loading/Loading.jsx';
+// eslint-disable-next-line import/order
+import { observer, inject } from 'mobx-react';
 
-
-const CardContainer = inject(["dataStore"])(
+const CardContainer = inject(['dataStore'])(
   observer(({ dataStore }) => {
     const [selectedCardIndex, setSelectedCardIndex] = useState(0);
     const [data, updateTranslationState] = useState(dataStore.data);
@@ -29,13 +29,13 @@ const CardContainer = inject(["dataStore"])(
 
     const addToWords = useCallback(
       () => setWordsCount(wordsCount + 1),
-      [wordsCount]
+      [wordsCount],
     );
 
     const handleClickTranslation = (isTranslationShown) => {
       const dataCopy = [...data];
-      dataCopy[selectedCardIndex].isTranslationShow =
-        !dataCopy[selectedCardIndex].isTranslationShow;
+      // eslint-disable-next-line max-len
+      dataCopy[selectedCardIndex].isTranslationShow = !dataCopy[selectedCardIndex].isTranslationShow;
       updateTranslationState(dataCopy);
       if (!isTranslationShown) {
         addToWords();
@@ -56,8 +56,7 @@ const CardContainer = inject(["dataStore"])(
             word={dataStore.data[selectedCardIndex].english}
             transcription={dataStore.data[selectedCardIndex].transcription}
             translation={dataStore.data[selectedCardIndex].russian}
-            onClick={() =>
-              handleClickTranslation(data[selectedCardIndex].isTranslationShow)
+            onClick={() => handleClickTranslation(data[selectedCardIndex].isTranslationShow)
             }
             isTranslationShown={data[selectedCardIndex].isTranslationShow}
           ></Card>
@@ -70,8 +69,8 @@ const CardContainer = inject(["dataStore"])(
           {selectedCardIndex + 1}/{dataStore.data.length}
         </span>
       </div>
-      );
-    })
-  );
+    );
+  }),
+);
 
-  export default CardContainer;
+export default CardContainer;

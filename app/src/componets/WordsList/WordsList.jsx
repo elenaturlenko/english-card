@@ -1,13 +1,12 @@
-import React from "react";
-import TableRow from "../TableRow/TableRow";
-import "./WordsList.scss";
-import EditTableRow from "../EditTableRow/EditTableRow";
-import { observer, inject } from "mobx-react";
+import React from 'react';
+import TableRow from '../TableRow/TableRow.jsx';
+import './WordsList.scss';
+import EditTableRow from '../EditTableRow/EditTableRow.jsx';
+// eslint-disable-next-line import/order
+import { observer, inject } from 'mobx-react';
 
-
-const WordsList = inject(["dataStore"])(
-  observer(({ dataStore }) => {
-    return (
+const WordsList = inject(['dataStore'])(
+  observer(({ dataStore }) => (
       <div className="main_table">
         <table className="table">
           <caption className="table-name">Words List</caption>
@@ -33,8 +32,7 @@ const WordsList = inject(["dataStore"])(
           </tbody>
         </table>
       </div>
-    );
-  })
+  )),
 );
 
 export default WordsList;
